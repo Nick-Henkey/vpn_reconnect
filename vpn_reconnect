@@ -9,7 +9,7 @@ try()
                 /etc/init.d/hostapd restart
                 /etc/init.d/dnsmasq restart
                 /etc/init.d/openvpn restart
-                openvpn --config /etc/openvpn/server/va-us8421.conf --auth-nocache
+                openvpn --config /etc/openvpn/server/[yourOpenVpnFile.conf] --auth-nocache
 
         else
                 logger -t VPN_Reconnect VPN-Tunnel "tun0" is working with internet connection
@@ -31,6 +31,6 @@ catch ||
         /etc/init.d/hostapd start
         /etc/init.d/dnsmasq start
         /etc/init.d/openvpn start
-        openvpn --config /etc/openvpn/server/va-us8421.conf --auth-nocache
+        openvpn --config /etc/openvpn/server/[yourOpenVpnFile.conf] --auth-nocache
         exit 1
 }
