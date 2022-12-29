@@ -4,12 +4,9 @@ if  [ "$(ping -I tun0 -q -c 1 -W 1 193.17.47.1 | grep '100% packet loss' )" != "
        /etc/init.d/hostapd restart
        /etc/init.d/dnsmasq restart
        /etc/init.d/openvpn restart
-       openvpn --config /etc/openvpn/server/[insertServerConf.conf] --auth-nocache
+       openvpn --config /etc/openvpn/server/server1.conf --auth-nocache
 
-elseif
-       logger -t VPN_Reconnect VPN-Tunnel "tun0" is working with internet connection
-
-#if tun0 is not found
+# If tun0 is not found, restart the service from scratch
 else
        /etc/init.d/hostapd stop
        /etc/init.d/dnsmasq stop
@@ -19,6 +16,6 @@ else
        /etc/init.d/hostapd start
        /etc/init.d/dnsmasq start
        /etc/init.d/openvpn start
-       openvpn --config /etc/openvpn/server/[insertServerConf.conf] --auth-nocache
+       openvpn --config /etc/openvpn/server/server1.conf --auth-nocache
 
 fi
