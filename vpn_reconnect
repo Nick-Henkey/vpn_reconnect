@@ -1,4 +1,3 @@
-# No warranty but works okay with my system.d service
 #if#!/bin/sh
 
 try()
