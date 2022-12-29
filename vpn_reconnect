@@ -1,4 +1,4 @@
-# No warranty but works okay with system.d service
+# No warranty but works okay with my system.d service
 #if#!/bin/sh
 
 try()
